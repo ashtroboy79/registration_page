@@ -21,13 +21,13 @@
 			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 			crossorigin="anonymous"
 		></script>
-		<div class="jumbotron">
+		<!-- <div class="jumbotron"> -->
 			<div class="container-sm">
 				<div class="row">
 					<h1>Welcome to Exceedra Tennis Club</h1>
 				</div>
 			</div>
-		</div>
+		<!-- </div> -->
 		<div class="jumbotron"></divclass>
       <div class="row">
         <div class="col-sm-6">
@@ -37,19 +37,23 @@
             </div>
             <div class="card-body">
               <div class="container">
-                <form> 
+                <form action="/welcome.html" class="was-validated"> 
                   <div class="mb-3">
-                    <input type="password" class="form-control" id="firstName" placeholder="First Name">
+                    <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
                   </div>
                   <div class="mb-3">
-                    <input type="password" class="form-control" id="surame" placeholder="Surname">
+                    <input type="text" class="form-control" id="surame" placeholder="Surname" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
                   </div>
                   <div class="mb-3">
-                    <input type="email" class="form-control" id="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
                   </div>
                   <div class="mb-3">
-                    <input type="password" class="form-control" id="password1" placeholder="Password">
-                    <input type="password" class="form-control" id="password1" placeholder="Confirm Password">
+                    <input type="password" class="form-control" id="password1" placeholder="Password" required>
+                    <input type="password" class="form-control" id="password1" placeholder="Confirm Password" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
                   </div>
                   <button type="submit" class="btn btn-primary">Register</button>
                 </form>
