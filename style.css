@@ -1,16 +1,17 @@
 .jumbotron {
 	padding: 2rem 1rem;
-	margin-bottom: 2rem;
+	/* margin-bottom: 2rem; */
 	border-radius: 0.3rem;
 }
 
 h1 {
 	color: black;
+	text-align: center;
 }
 
 body {
 	height: 100%;
-	background: linear-gradient(30deg, white, rgb(0, 174, 255) 80%) fixed
+	background: linear-gradient(-60deg, white, rgb(0, 174, 255) 80%) fixed
 		no-repeat;
 }
 
