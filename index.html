@@ -69,7 +69,7 @@
       const userData = new FormData(event.target);
       const data = {};
       userData.forEach((value, key) => (data[key] = value));
-      console.log(data);
+      console.log(JSON.stringify(data));
     }
     </script>
 	</body>
