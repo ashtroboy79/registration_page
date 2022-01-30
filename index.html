@@ -37,7 +37,7 @@
             </div>
             <div class="card-body">
               <div class="container">
-                <form action="welcome.html" class="was-validated" onsubmit="userData(event)" method="POST"> 
+                <form action="welcome.html" class="was-validated" method="post" onsubmit="userData(event)"> 
                   <div class="mb-3">
                     <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" required>
                     <div class="invalid-feedback">Please fill out this field.</div>
@@ -49,6 +49,10 @@
                   <div class="mb-3">
                     <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
                     <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+                  <div class="mb-3">
+                    <select id="countryDropdown" name="country">
+                    </select>
                   </div>
                   <div class="mb-3">
                     <input type="password" class="form-control" id="password1" placeholder="Password" name="password1" required>
@@ -64,13 +68,47 @@
 		  </div>
     </div>
     <script type="text/javascript">
-    function userData(event) {
-      event.preventDefault();
-      const userData = new FormData(event.target);
-      const data = {};
-      userData.forEach((value, key) => (data[key] = value));
-      console.log(JSON.stringify(data));
-    }
+      function userData(event) {
+        event.preventDefault();
+        const userData = new FormData(event.target);
+        const data = {};
+        userData.forEach((value, key) => (data[key] = value));
+        console.log(JSON.stringify(data));
+      }
+    </script>
+    <script>
+      let dropdown = document.getElementById('countryDropdown');
+      dropdown.length = 0;
+      let defaultOption = document.createElement('option');
+      defaultOption.text = 'Choose country';
+
+      dropdown.add(defaultOption);
+      dropdown.selectedIndex = 0;
+
+      const url = 'https://restcountries.com/v2/all';
+
+      fetch(url)  
+        .then(  
+          function(response) {  
+            if (response.status !== 200) {  
+              console.warn('Looks like there was a problem. Status Code: ' + 
+                response.status);  
+              return;  
+            }
+            response.json().then(function(data) {  
+              let option;
+          
+            for (let i = 0; i < data.length; i++) {
+                option = document.createElement('option');
+                option.text = data[i].name;
+                dropdown.add(option);
+            }    
+            });  
+          }  
+        )  
+        .catch(function(err) {  
+          console.error('Fetch Error -', err);  
+        });
     </script>
 	</body>
 </html>
